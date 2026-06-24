@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turiz A/C Equipment Service — Los Angeles, CA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gray-950: #111214;
+    --gray-900: #1c1e22;
+    --gray-800: #26292f;
+    --gray-700: #363a42;
+    --gray-600: #4f545e;
+    --gray-400: #8b919e;
+    --gray-200: #c9cdd5;
+    --gray-100: #e8eaed;
+    --gray-50:  #f4f5f7;
+    --steel:    #3d7cbf;
+    --steel-lt: #5a95d4;
+    --steel-dk: #2c5e96;
+    --steel-bg: #e8f0f9;
+    --white:    #ffffff;
+    --text-primary: #1c1e22;
+    --text-muted: #4f545e;
+    --text-hint: #8b919e;
+    --border: #dde0e5;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text-primary);
+    background: var(--white);
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--gray-900);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 62px;
+    border-bottom: 2px solid var(--steel);
+  }
+  .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo {
+    width: 36px; height: 36px; border-radius: 6px;
+    background: var(--steel); display: flex; align-items: center; justify-content: center;
+  }
+  .nav-logo svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; }
+  .nav-name { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; color: #fff; letter-spacing: 0.02em; line-height: 1.1; }
+  .nav-sub { font-size: 10px; color: var(--gray-400); letter-spacing: 0.06em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { font-size: 13px; color: var(--gray-200); text-decoration: none; letter-spacing: 0.02em; transition: color 0.15s; }
+  .nav-links a:hover { color: var(--steel-lt); }
+  .nav-phone {
+    background: var(--steel); color: #fff; text-decoration: none;
+    font-size: 13px; font-weight: 600; padding: 8px 18px; border-radius: 6px;
+    display: flex; align-items: center; gap: 7px; transition: background 0.15s;
+  }
+  .nav-phone:hover { background: var(--steel-dk); }
+  .nav-phone svg { width: 15px; height: 15px; fill: none; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--gray-950);
+    padding: 5rem 2rem 4.5rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 59px,
+      rgba(61,124,191,0.06) 59px,
+      rgba(61,124,191,0.06) 60px
+    );
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 900px; margin: 0 auto; position: relative; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--steel-lt); margin-bottom: 1.25rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 24px; height: 2px; background: var(--steel);
+  }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(38px, 6vw, 60px);
+    font-weight: 700; line-height: 1.05;
+    color: #fff; letter-spacing: 0.01em;
+    margin-bottom: 1.25rem; max-width: 700px;
+  }
+  .hero h1 em { color: var(--steel-lt); font-style: normal; }
+  .hero-p { font-size: 16px; color: var(--gray-400); line-height: 1.7; max-width: 520px; margin-bottom: 2.25rem; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 3rem; }
+  .btn-main {
+    background: var(--steel); color: #fff; text-decoration: none;
+    font-size: 14px; font-weight: 600; padding: 12px 24px; border-radius: 6px;
+    display: inline-flex; align-items: center; gap: 8px; transition: background 0.15s;
+  }
+  .btn-main:hover { background: var(--steel-dk); }
+  .btn-ghost {
+    background: transparent; color: var(--gray-200); border: 1px solid var(--gray-700);
+    font-size: 14px; font-weight: 500; padding: 12px 24px; border-radius: 6px;
+    display: inline-flex; align-items: center; gap: 8px; text-decoration: none; transition: border-color 0.15s, color 0.15s;
+  }
+  .btn-ghost:hover { border-color: var(--steel-lt); color: var(--steel-lt); }
+  .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; border-top: 1px solid var(--gray-800); padding-top: 2rem; }
+  .hero-stat-val { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 700; color: #fff; }
+  .hero-stat-label { font-size: 12px; color: var(--gray-400); margin-top: 2px; }
+
+  /* ── SECTIONS ── */
+  .section { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--steel); font-weight: 600; margin-bottom: 0.5rem;
+  }
+  .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: 32px; font-weight: 700; color: var(--gray-900); margin-bottom: 0.5rem; letter-spacing: 0.01em; }
+  .section-desc { font-size: 15px; color: var(--text-muted); line-height: 1.7; max-width: 560px; margin-bottom: 2.5rem; }
+  .divider { border: none; border-top: 1px solid var(--border); }
+
+  /* ── SERVICES ── */
+  .services-bg { background: var(--gray-50); }
+  .services-inner { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .service-card { background: var(--white); padding: 1.75rem 1.5rem; }
+  .service-card:hover { background: var(--steel-bg); }
+  .s-icon {
+    width: 40px; height: 40px; border-radius: 8px;
+    background: var(--gray-900); display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .s-icon svg { width: 20px; height: 20px; fill: none; stroke: var(--steel-lt); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .s-name { font-size: 14px; font-weight: 600; color: var(--gray-900); margin-bottom: 6px; }
+  .s-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+
+  /* ── ESTIMATE ── */
+  .estimate-wrap { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; max-width: 680px; }
+  .estimate-topbar { background: var(--gray-900); padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: flex-start; }
+  .est-co-name { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
+  .est-co-addr { font-size: 12px; color: var(--gray-400); margin-top: 3px; line-height: 1.5; }
+  .est-meta { text-align: right; font-size: 12px; color: var(--gray-400); }
+  .est-meta strong { color: var(--steel-lt); }
+  .est-equip { display: flex; gap: 2rem; flex-wrap: wrap; padding: 1rem 1.5rem; background: var(--gray-50); border-bottom: 1px solid var(--border); }
+  .eq-item { display: flex; flex-direction: column; }
+  .eq-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-hint); }
+  .eq-val { font-size: 13px; font-weight: 600; color: var(--gray-900); }
+  .est-body { padding: 1.5rem; }
+  .est-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .est-table th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; color: var(--text-hint); padding: 0 0 10px; border-bottom: 1px solid var(--border); }
+  .est-table th:last-child { text-align: right; }
+  .est-table td { padding: 7px 0; border-bottom: 1px solid var(--gray-100); vertical-align: top; color: var(--text-primary); }
+  .est-table td:last-child { text-align: right; white-space: nowrap; padding-left: 12px; }
+  .est-table tr:last-child td { border-bottom: none; }
+  .item-code { font-size: 11px; color: var(--text-hint); margin-right: 5px; font-family: monospace; }
+  .free-pill { font-size: 11px; color: #1a6644; background: #d4f0e4; padding: 2px 8px; border-radius: 20px; font-weight: 500; }
+  .est-totals { border-top: 1px solid var(--border); padding: 1rem 1.5rem; display: flex; flex-direction: column; align-items: flex-end; gap: 5px; background: var(--gray-50); }
+  .tot-row { display: flex; gap: 2.5rem; font-size: 13px; }
+  .tot-label { color: var(--text-muted); }
+  .tot-val { min-width: 90px; text-align: right; }
+  .tot-grand { font-size: 17px; font-weight: 700; color: var(--gray-900); border-top: 1px solid var(--border); padding-top: 8px; margin-top: 4px; }
+  .warranty-bar { background: var(--gray-900); color: var(--gray-400); font-size: 11px; padding: 0.75rem 1.5rem; line-height: 1.5; }
+
+  /* ── REVIEWS ── */
+  .reviews-bg { background: var(--gray-50); }
+  .reviews-inner { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
+  .rating-bar {
+    display: flex; align-items: center; gap: 1.5rem;
+    background: var(--gray-900); color: #fff;
+    border-radius: 10px; padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .rating-num { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 700; color: #fff; line-height: 1; }
+  .rating-stars { font-size: 20px; color: #f0b429; letter-spacing: 2px; }
+  .rating-source { font-size: 12px; color: var(--gray-400); margin-top: 4px; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+  .review-stars { color: #f0b429; font-size: 14px; margin-bottom: 10px; }
+  .review-text { font-size: 13px; line-height: 1.6; color: var(--text-primary); margin-bottom: 12px; }
+  .review-author { font-size: 12px; color: var(--text-hint); font-weight: 500; }
+
+  /* ── CONTACT ── */
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+  .contact-card {
+    border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .c-icon {
+    width: 40px; height: 40px; background: var(--gray-900); border-radius: 8px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .c-icon svg { width: 18px; height: 18px; fill: none; stroke: var(--steel-lt); stroke-width: 2; stroke-linecap: round; }
+  .c-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-hint); margin-bottom: 4px; }
+  .c-val { font-size: 14px; font-weight: 600; color: var(--gray-900); }
+  .c-val a { color: var(--steel-dk); text-decoration: none; }
+  .c-val a:hover { text-decoration: underline; }
+  .c-sub { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--gray-950);
+    color: var(--gray-400);
+    text-align: center;
+    padding: 2rem;
+    font-size: 12px;
+    line-height: 1.8;
+    border-top: 2px solid var(--steel);
+  }
+  footer strong { color: var(--gray-200); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .nav { padding: 0 1rem; }
+    .hero { padding: 3.5rem 1rem 3rem; }
+    .section { padding: 3rem 1rem; }
+    .services-inner, .reviews-inner { padding: 3rem 1rem; }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-brand" href="#">
+    <div class="nav-logo">
+      <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+    </div>
+    <div>
+      <div class="nav-name">Turiz A/C Equipment</div>
+      <div class="nav-sub">Service &amp; Repair · Los Angeles</div>
+    </div>
+  </a>
+  <nav class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#estimate">Estimate</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="nav-phone" href="tel:3237703105">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.05 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    (323) 770-3105
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">East Los Angeles, CA · Equipment Service</div>
+    <h1>Professional A/C equipment<br>service &amp; <em>repair</em></h1>
+    <p class="hero-p">Turiz specializes in the service, calibration, and repair of professional automotive A/C machines — including Robinair units. Serving dealerships and shops across the LA area.</p>
+    <div class="hero-actions">
+      <a class="btn-main" href="tel:3237703105">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.05 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Call now
+      </a>
+      <a class="btn-ghost" href="mailto:Turizac@yahoo.com">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email for an estimate
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-val">4.3★</div>
+        <div class="hero-stat-label">Google rating</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">90-day</div>
+        <div class="hero-stat-label">Parts &amp; labor warranty</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">Mon–Fri</div>
+        <div class="hero-stat-label">8:30 AM – 4:30 PM</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">Pick-up</div>
+        <div class="hero-stat-label">&amp; delivery available</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<div class="services-bg" id="services">
+  <div class="services-inner">
+    <div class="section-eyebrow">What we do</div>
+    <h2 class="section-title">Specialized A/C equipment service</h2>
+    <p class="section-desc">From vacuum pump maintenance to full unit overhauls, we keep your professional A/C equipment running right.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="s-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <div class="s-name">Vacuum pump service</div>
+        <div class="s-desc">Oil drain flush &amp; refill to maintain pump efficiency and extend lifespan.</div>
+      </div>
+      <div class="service-card">
+        <div class="s-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="s-name">Gauge &amp; valve calibration</div>
+        <div class="s-desc">Calibrate gauges, expansion valves, scales, and transducers for precise readings.</div>
+      </div>
+      <div class="service-card">
+        <div class="s-icon">
+          <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+        </div>
+        <div class="s-name">Filter &amp; defaults reset</div>
+        <div class="s-desc">Filter replacement and vacuum pump maintenance defaults restored to spec.</div>
+      </div>
+      <div class="service-card">
+        <div class="s-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="s-name">Function &amp; leak test</div>
+        <div class="s-desc">Full functional testing, leak verification, and certification sticker on completion.</div>
+      </div>
+      <div class="service-card">
+        <div class="s-icon">
+          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8zM5 18v3M10 18v3"/></svg>
+        </div>
+        <div class="s-name">Pick-up &amp; delivery</div>
+        <div class="s-desc">We come to you. No need to haul your machine — we handle logistics.</div>
+      </div>
+      <div class="service-card">
+        <div class="s-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="s-name">Parts &amp; accessories</div>
+        <div class="s-desc">Service hoses, couplers, power cords, wheels, tank straps, and certified components.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ESTIMATE -->
+<section class="section" id="estimate">
+  <div class="section-eyebrow">Sample estimate</div>
+  <h2 class="section-title">Transparent pricing</h2>
+  <p class="section-desc">Here's an example work order so you know exactly what to expect. Labor and calibration services are included at no extra charge.</p>
+
+  <div class="estimate-wrap">
+    <div class="estimate-topbar">
+      <div>
+        <div class="est-co-name">Turiz A/C Equipment Service</div>
+        <div class="est-co-addr">4319 E 4th St, Los Angeles, CA 90022<br>(323) 770-3105 · Turizac@yahoo.com</div>
+      </div>
+      <div class="est-meta">
+        <div>W.O. # <strong>20A26061</strong></div>
+        <div>Date: <strong>6/22/2026</strong></div>
+      </div>
+    </div>
+
+    <div class="est-equip">
+      <div class="eq-item"><span class="eq-label">Manufacturer</span><span class="eq-val">Robinair</span></div>
+      <div class="eq-item"><span class="eq-label">Model</span><span class="eq-val">34988</span></div>
+      <div class="eq-item"><span class="eq-label">Serial #</span><span class="eq-val">603466</span></div>
+    </div>
+
+    <div class="est-body">
+      <table class="est-table">
+        <thead>
+          <tr>
+            <th style="width:80px">Item #</th>
+            <th>Description</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="item-code">TAC7</span></td><td>Vacuum pump oil — drain flush &amp; refill</td><td>$11.59</td></tr>
+          <tr><td><span class="item-code">TA01</span></td><td>Compressor oil drain flush &amp; refill crankcase oil</td><td>$35.85</td></tr>
+          <tr><td><span class="item-code">34724</span></td><td>Filter</td><td>$98.56</td></tr>
+          <tr><td><span class="item-code">TAC11</span></td><td>Loaner unit (34700Z – 171804)</td><td>$78.30</td></tr>
+          <tr><td><span class="item-code">62121</span></td><td>96" Blue R-123A Enviro-Guard service hose</td><td>$78.30</td></tr>
+          <tr><td><span class="item-code">63096</span></td><td>96" Red R-123A Enviro-Guard service hose</td><td>$38.62</td></tr>
+          <tr><td><span class="item-code">16103</span></td><td>Wheel ×2</td><td>$77.24</td></tr>
+          <tr><td><span class="item-code">122770</span></td><td>Power cord</td><td>$49.55</td></tr>
+          <tr><td><span class="item-code">18191</span></td><td>High-side field service coupler</td><td>$68.93</td></tr>
+          <tr><td><span class="item-code">18190A</span></td><td>Low-side field service coupler</td><td>$68.93</td></tr>
+          <tr><td><span class="item-code">19056</span></td><td>Tank strap</td><td>$23.34</td></tr>
+          <tr>
+            <td><span class="item-code">Labor</span></td>
+            <td style="color:#4f545e; font-style:italic">Calibration, leak test &amp; certification — no tax</td>
+            <td><span class="free-pill">included</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="est-totals">
+      <div class="tot-row"><span class="tot-label">Subtotal</span><span class="tot-val">$1,080.59</span></div>
+      <div class="tot-row"><span class="tot-label">Sales tax (9.75%)</span><span class="tot-val">$57.58</span></div>
+      <div class="tot-row tot-grand"><span class="tot-label">Total</span><span class="tot-val">$1,138.17</span></div>
+    </div>
+
+    <div class="warranty-bar">Parts warranted for 90 days. Labor guaranteed for 90 days on equipment serviced. Terms due upon completion. All sales final — special order parts must be pre-paid.</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- REVIEWS -->
+<div class="reviews-bg" id="reviews">
+  <div class="reviews-inner">
+    <div class="section-eyebrow">Customer reviews</div>
+    <h2 class="section-title">What people say</h2>
+    <div class="rating-bar">
+      <div class="rating-num">4.3</div>
+      <div>
+        <div class="rating-stars">★★★★☆</div>
+        <div class="rating-source">Google Reviews · Turiz A/C Equipment Service</div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Here's awesome. Has helped us for years and very happy with the service. Definitely recommend."</div>
+        <div class="review-author">Heart n Hustle Studios · Local Guide</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Excellent service. They know Robinair machines inside and out. Quick turnaround, no runaround."</div>
+        <div class="review-author">Rosa Flores</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Pick-up and delivery made it painless for our shop. Came back calibrated and certified. Will use again."</div>
+        <div class="review-author">Luciano Acevedo</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-eyebrow">Get in touch</div>
+  <h2 class="section-title">Contact &amp; hours</h2>
+  <p class="section-desc">Call or email to schedule a pick-up, get a quote, or ask about your machine.</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="c-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.05 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </div>
+      <div>
+        <div class="c-label">Phone</div>
+        <div class="c-val"><a href="tel:3237703105">(323) 770-3105</a></div>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="c-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div>
+        <div class="c-label">Email</div>
+        <div class="c-val"><a href="mailto:Turizac@yahoo.com">Turizac@yahoo.com</a></div>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="c-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div>
+        <div class="c-label">Address</div>
+        <div class="c-val">4319 E 4th St</div>
+        <div class="c-sub">Los Angeles, CA 90022<br>East Los Angeles</div>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="c-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div>
+        <div class="c-label">Hours</div>
+        <div class="c-val">Mon – Fri</div>
+        <div class="c-sub">8:30 AM – 4:30 PM<br>Saturday &amp; Sunday: closed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>Turiz A/C Equipment Service</strong><br>
+  4319 E 4th St · Los Angeles, CA 90022 · (323) 770-3105 · Turizac@yahoo.com<br>
+  © 2026 Turiz A/C Equipment Service. All rights reserved.
+</footer>
+
+</body>
+</html>
