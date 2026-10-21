@@ -1,0 +1,27 @@
+{
+  "rating": 4.3,
+  "totalCount": null,
+  "reviews": [
+    {
+      "author": "Heart n Hustle Studios",
+      "meta": "Local Guide \u00b7 28 reviews",
+      "rating": 5,
+      "text": "Here's awesome. Has helped us for years and very happy with the service. Definitely recommend.",
+      "color": "#e05c35"
+    },
+    {
+      "author": "Luciano Acevedo",
+      "meta": "Local Guide \u00b7 14 reviews",
+      "rating": 5,
+      "text": "Pick-up and delivery made it painless for our shop. Came back calibrated and certified. Will use again.",
+      "color": "#4a7a9b"
+    },
+    {
+      "author": "Rosa Flores",
+      "meta": "1 review",
+      "rating": 5,
+      "text": "Excellent service. They know machines inside and out. Quick turnaround, no runaround.",
+      "color": "#1a8a5a"
+    }
+  ]
+}
